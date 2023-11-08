@@ -15,10 +15,10 @@ namespace ApiRestBilling.Models
         public string LastName { get; set; } = string.Empty;
 
         [MaxLength(128)]
-        public string City { get; set; } = string.Empty;
+        public string City { get; set; }
 
         [MaxLength(128)]
-        public string Country { get; set; }
+        public string Country { get; set; } = string.Empty;
 
         [MaxLength(16)]
         public string Phone { get; set; }

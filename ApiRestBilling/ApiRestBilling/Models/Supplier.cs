@@ -19,7 +19,7 @@ namespace ApiRestBilling.Models
         public string Country { get; set; }
         [MaxLength(16)]
         public string Phone { get; set; }
-        [EmailAddress(ErrorMessage = "El valor introducido no es una dirección de correo electrónico válida.")]
+        [EmailAddress(ErrorMessage = "El valor introducido no es válido.")]
         public string? Email { get; set; }
         public ICollection<Product>? Products { get; set; }
     }

@@ -30,7 +30,8 @@ namespace ApiRestBilling.Controllers
         }
 
         // GET api/<SuppliersController>/5
-        [HttpGet("{id}")]  // variables de ruta: http://localhost:7151/api/suppliers/5
+        [HttpGet("{id}")]  
+        // variables de ruta: http://localhost:7151/api/suppliers/5
         public async Task<ActionResult<Supplier>> Get(int id)
         {
             if (_context.Suppliers == null)

@@ -16,9 +16,9 @@ namespace ApiRestBilling.Models
         [Required]
         public int Quantity { get; set; } = 1;
         [ForeignKey("OrderId")]
-        public Order Order { get; set; }
+        public Order? Order { get; set; }
         [ForeignKey("ProductId")]
-        public Product Product { get; set; }
-        public object Subtotal { get; internal set; }
+        public Product? Product { get; set; }
+        public object? Subtotal { get; internal set; }
     }
 }

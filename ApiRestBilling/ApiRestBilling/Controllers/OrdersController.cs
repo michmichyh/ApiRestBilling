@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ApiRestBilling.Data;
 using ApiRestBilling.Models;
 using ApiRestBilling.Services;
+using ApiRestBilling.Controllers.services;
 
 namespace ApiRestBilling.Controllers
 {
@@ -94,17 +95,17 @@ namespace ApiRestBilling.Controllers
                 return Problem("Entity set 'ApplicationDbContext.Orders'  is null.");
             }
 
-            // Recorremos cada detalle en la orden de compra
+            // Recorrer cada detalle de la orden de compra
             foreach (var detalle in order.OrderItems)
             {
-                // Asignar el precio unitario del producto al detalle
+                // Asigna el precio unitario del producto al detalle
                 detalle.UnitPrice = await _purchaseOrdersService.CheckUnitPrice(detalle);
 
-                // Calcular el subtotal
+                // Calcula el subtotal
                 detalle.Subtotal = await _purchaseOrdersService.CalculateSubtotalOrderItem(detalle);
             }
 
-            // Asignar el total calculado a la orden de compra (si tienes una propiedad explicita para el total en tu modelo)
+            // Asigna el total que se calculo a la orden de compra (si se tiene una propiedad explicita para el total en tu modelo)
             order.TotalAmount = _purchaseOrdersService.CalcularTotalOrderItems((List<OrderItem>)order.OrderItems);
 
             _context.Orders.Add(order);
