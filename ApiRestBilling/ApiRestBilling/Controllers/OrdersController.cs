@@ -24,7 +24,7 @@ namespace ApiRestBilling.Controllers
             _context = context;
             _purchaseOrdersService = purchaseOrdersService;
         }
-
+            
         // GET: api/Orders
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
@@ -90,7 +90,8 @@ namespace ApiRestBilling.Controllers
         [HttpPost]
         public async Task<ActionResult<Order>> PostOrder(Order order)
         {
-            if (_context.Orders == null)
+            
+           if (_context.Orders == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Orders'  is null.");
             }
