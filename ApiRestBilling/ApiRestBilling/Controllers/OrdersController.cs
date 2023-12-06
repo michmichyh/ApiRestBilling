@@ -97,7 +97,7 @@ namespace ApiRestBilling.Controllers
             }
 
             // Recorrer cada detalle de la orden de compra
-            foreach (var detalle in order.OrderItems)
+            foreach (OrderItem detalle in order.OrderItems)
             {
                 // Asigna el precio unitario del producto al detalle
                 detalle.UnitPrice = await _purchaseOrdersService.CheckUnitPrice(detalle);
